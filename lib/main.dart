@@ -160,11 +160,11 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: _currentIndex == 0
           ? buildTimeTable()
-          : (_currentIndex == 1
+          : (_currentIndex == 3
           ? (_counter > 3
           ? buildGifImage()
           : buildSettings())
-          : (_currentIndex == 2
+          : (_currentIndex == 1
           ? buildFoodInformation()
           : buildFoodInformation2())),
       bottomNavigationBar: BottomNavigationBar(
@@ -174,12 +174,12 @@ class _HomeScreenState extends State<HomeScreen> {
             _currentIndex = index;
           });
         },
-        selectedFontSize: 30,
-        unselectedFontSize: 25,
-        selectedItemColor: Colors.blue, // 선택된 요소 색
-        unselectedItemColor: Colors.black, // 선택되지 않은 요소 색
         showSelectedLabels: true,
         showUnselectedLabels: true,
+        selectedLabelStyle: TextStyle(fontSize: 30),
+        unselectedLabelStyle: TextStyle(fontSize: 25),
+        selectedItemColor: Colors.blue, // 선택된 요소 색
+        unselectedItemColor: Colors.black, // 선택되지 않은 요소 색
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
@@ -190,19 +190,19 @@ class _HomeScreenState extends State<HomeScreen> {
             icon:
             Image.asset(
                 'assets/MEXICANCATDANCING.gif', width: 225, height: 75),
-            label: '인내',
-          ),
-          BottomNavigationBarItem(
-            icon:
-            Image.asset(
-                'assets/MEXICANCATDANCINGCP.gif', width: 225, height: 75),
             label: '오.급',
           ),
           BottomNavigationBarItem(
             icon:
             Image.asset(
-                'assets/CATDANCINGCP.gif', width: 225, height: 75),
+                'assets/MEXICANCATDANCINGCP.gif', width: 225, height: 75),
             label: '낼.급',
+          ),
+          BottomNavigationBarItem(
+            icon:
+            Image.asset(
+                'assets/CATDANCINGCP.gif', width: 225, height: 75),
+            label: '인내',
           ),
         ],
       ),
@@ -261,7 +261,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildGifImage() {
-    return _currentIndex == 1
+    return _currentIndex == 3
         ? Center(
       child: Image.asset('assets/BOD(GIF).gif'),
     )
@@ -368,14 +368,14 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if (_currentIndex == 1) // Show the button only on the second screen
+          if (_currentIndex == 3) // Show the button only on the second screen
             Text(
               '3번의 기회',
               style: TextStyle(
                 fontSize: 30,
               ),
             ),
-          if (_currentIndex == 1) // Show the button only on the second screen
+          if (_currentIndex == 3) // Show the button only on the second screen
             ElevatedButton(
               onPressed: () {
                 setState(() {
